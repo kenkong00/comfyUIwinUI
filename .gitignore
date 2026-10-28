@@ -34,9 +34,6 @@ server/data/
 server/_migtest/
 server/_migtest3/
 
-# ---- 含真实密钥的配置文件（不入库，公开仓库切勿上传）----
-server/config.json
-
 # ---- 数据库备份（不入库）----
 server/data.db*
 *.bak
