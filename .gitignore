@@ -1,0 +1,55 @@
+# 忽略 .temp 临时文件夹
+.temp/
+
+# 环境变量文件（包含敏感信息，不要提交到 Git）
+.env.local
+.env*.local
+
+# ---- 依赖 / 构建 / 运行数据（不入库）----
+node_modules/
+dist/
+.shots/
+.tmp-build-check/
+.trae/
+.workbuddy/
+.tools/
+.temp_vite/
+__pycache__/
+*.log
+
+# ---- 残留/运行输出（不入库）----
+nul
+api-server-out.txt
+download-server-out.txt
+dl-log-clean.txt
+ps_log.txt
+server_err.txt
+server_log.txt
+
+# ---- 运行时数据库（不入库）----
+*.db
+*.db-shm
+*.db-wal
+server/data/
+server/_migtest/
+server/_migtest3/
+
+# ---- 含真实密钥的配置文件（不入库，公开仓库切勿上传）----
+server/config.json
+
+# ---- 数据库备份（不入库）----
+server/data.db*
+*.bak
+
+# ---- 图片（按需求：本项目不上传图片）----
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.webp
+*.bmp
+*.tiff
+*.tif
+*.ico
+*.svg
+*.heic

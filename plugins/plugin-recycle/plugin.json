@@ -1,0 +1,22 @@
+{
+  "id": "recycle",
+  "name": "回收站",
+  "version": "1.0.0",
+  "author": "core",
+  "description": "文件库回收站：浏览已删除的文件与文件夹，支持还原和彻底删除。",
+  "icon": "recycle",
+  "coreVersion": ">=1.0.0",
+  "desktop": true,
+  "app": {
+    "multi": false,
+    "pin": 0,
+    "w": 980,
+    "h": 640,
+    "entry": "ui/index.js",
+    "export": "default"
+  },
+  "permissions": [
+    "fileLibrary.read",
+    "fileLibrary.write"
+  ]
+}

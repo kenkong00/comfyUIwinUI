@@ -1,0 +1,266 @@
+{
+  "2": {
+    "inputs": {
+      "unet_name": "krea2\\krea2MuseByStable_v15TurboFp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "91",
+        0
+      ],
+      "vae": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "5": {
+    "inputs": {
+      "vae_name": "qwen\\qwen_image_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "7": {
+    "inputs": {
+      "clip_name": "krea2\\qwen3vl_4b_fp8_scaled.safetensors",
+      "type": "krea2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "8": {
+    "inputs": {
+      "width": 512,
+      "height": 768,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "9": {
+    "inputs": {
+      "conditioning": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "条件零化"
+    }
+  },
+  "11": {
+    "inputs": {
+      "text": [
+        "96",
+        0
+      ],
+      "clip": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "58": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "63": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_3": {
+        "on": false,
+        "lora": "【krea2】\\控制\\age_krea2_loraholic.safetensors",
+        "strength": -0.5
+      },
+      "lora_4": {
+        "on": false,
+        "lora": "【krea2】\\控制\\monolid_krea2_loraholic.safetensors",
+        "strength": -1.5
+      },
+      "lora_5": {
+        "on": false,
+        "lora": "【krea2】\\控制\\breast_size_krea2_loraholic.safetensors",
+        "strength": 3
+      },
+      "lora_6": {
+        "on": false,
+        "lora": "【krea2】\\特色\\ERPSX_K2.safetensors",
+        "strength": 1
+      },
+      "lora_7": {
+        "on": false,
+        "lora": "【krea2】\\nsfw\\realism_engine_krea2_v2.safetensors",
+        "strength": 1
+      },
+      "lora_8": {
+        "on": false,
+        "lora": "【krea2】\\风格\\Playboy-1980s-krea2-v1_000001500.safetensors",
+        "strength": 0.9
+      },
+      "lora_9": {
+        "on": false,
+        "lora": "【krea2】\\控制\\Detailer-KREA2.safetensors",
+        "strength": 2
+      },
+      "lora_10": {
+        "on": false,
+        "lora": "【krea2】\\风格\\Krea2Turbo_RadianceChromeVoluptuous_v1.0.safetensors",
+        "strength": 0.35
+      },
+      "lora_11": {
+        "on": false,
+        "lora": "【krea2】\\特色\\shadiaodonghua_沙雕.safetensors",
+        "strength": 0.5
+      },
+      "lora_12": {
+        "on": true,
+        "lora": "【krea2】\\控制\\PornMaster_Krea2_Realism_slider_V1.safetensors",
+        "strength": 6
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  },
+  "90": {
+    "inputs": {},
+    "class_type": "VAEEncode",
+    "_meta": {
+      "title": "VAE编码"
+    }
+  },
+  "91": {
+    "inputs": {
+      "seed": 309885793454999,
+      "steps": 7,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "beta",
+      "denoise": 1,
+      "model": [
+        "63",
+        0
+      ],
+      "positive": [
+        "11",
+        0
+      ],
+      "negative": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "95": {
+    "inputs": {
+      "text": ""
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "提示词"
+    }
+  },
+  "96": {
+    "inputs": {
+      "text_0": "这是一张35毫米胶片拍摄的真人版剧照，逼真的皮肤毛孔、真实的织物纹理以及黑暗、写实的电影美学进行拍摄, 分镜 5：\n视角：特写；\n角色关系与构图：前景是手握住巨大佛像底座边缘，中景是黄蓉（中国，女，28 岁，身材丰满，皮肤白皙，穿着黑色蕾丝内衣，胸部高耸，臀部圆润）仰卧在巨大佛像前的黑色石台上，双腿大张，阴道湿润，阴茎插入深处，面部表情痛苦扭曲，双眼翻白，嘴巴张开，口水流出，身体剧烈颤抖，背景是寺庙内部，巨大的佛像，黑色的墙壁，零星的烛光，巨大的圆月亮透过窗户照进来，光线昏暗；\n打光：烛光，月光；\n场景：巨大佛像，黑色石台，黑色墙壁，零星烛光，巨大圆月亮，黑色地板；",
+      "text": [
+        "97",
+        0
+      ]
+    },
+    "class_type": "ShowText|pysssss",
+    "_meta": {
+      "title": "Show Text 🐍"
+    }
+  },
+  "97": {
+    "inputs": {
+      "inputcount": 2,
+      "delimiter": " ",
+      "return_list": false,
+      "Update inputs": null,
+      "string_1": [
+        "99",
+        0
+      ],
+      "string_2": [
+        "95",
+        0
+      ]
+    },
+    "class_type": "JoinStringMulti",
+    "_meta": {
+      "title": "Join String Multi"
+    }
+  },
+  "98": {
+    "inputs": {
+      "text": ""
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "风格"
+    }
+  },
+  "99": {
+    "inputs": {
+      "text": [
+        "98",
+        0
+      ]
+    },
+    "class_type": "Text Multiline",
+    "_meta": {
+      "title": "Text Multiline"
+    }
+  }
+}

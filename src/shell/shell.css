@@ -1,0 +1,53 @@
+/* src/shell/shell.css —— Windows 11 Shell 全局样式（非 scoped） */
+
+/* 让装入窗口的业务组件根元素撑满窗口内容区 */
+.win-content-root {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.win-content-root > * {
+  flex: 1 1 auto;
+  min-height: 0;
+  min-width: 0;
+  height: 100%;
+}
+
+/* 桌面铺满，置于 #app 背景之上 */
+.desktop {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+}
+
+/* 默认强调色（项目 style.css 已定义 --accent-color 时以项目为准） */
+:root {
+  --win-border: rgba(255, 255, 255, 0.5);
+  --titlebar-grad1: #fafafa;
+  --titlebar-grad2: #f0f0f0;
+}
+[data-theme='dark'] {
+  --win-border: rgba(255, 255, 255, 0.08);
+  --titlebar-grad1: #2b2b2f;
+  --titlebar-grad2: #252528;
+}
+
+/* 滚动条统一（浅色） */
+.win-content-root ::-webkit-scrollbar,
+.sm-grid::-webkit-scrollbar,
+.sp-results::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.win-content-root ::-webkit-scrollbar-thumb,
+.sm-grid::-webkit-scrollbar-thumb,
+.sp-results::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.4);
+  border-radius: 6px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+.win-content-root ::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.6);
+  background-clip: content-box;
+}

@@ -1,0 +1,22 @@
+{
+  "id": "media",
+  "name": "媒体播放器",
+  "version": "1.0.0",
+  "author": "core",
+  "description": "音视频播放器：双击文件库中的音频 / 视频文件时由内核唤起。",
+  "icon": "media",
+  "coreVersion": ">=1.0.0",
+  "desktop": false,
+  "app": {
+    "multi": true,
+    "pin": 0,
+    "w": 960,
+    "h": 640,
+    "entry": "ui/index.js",
+    "export": "default"
+  },
+  "permissions": [
+    "fileLibrary.read"
+  ],
+  "opensWith": ["audio", "video"]
+}

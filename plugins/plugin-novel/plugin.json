@@ -1,0 +1,23 @@
+{
+  "id": "novel",
+  "name": "小说阅读器",
+  "version": "1.0.0",
+  "author": "core",
+  "description": "小说阅读与编辑：书名 / 目录 / 章节 / 阅读模式，正文中可直接插入与缩放图片。",
+  "icon": "novel",
+  "coreVersion": ">=1.0.0",
+  "desktop": true,
+  "app": {
+    "multi": true,
+    "pin": 0,
+    "w": 1080,
+    "h": 720,
+    "entry": "ui/index.js",
+    "export": "default"
+  },
+  "permissions": [
+    "fileLibrary.read",
+    "fileLibrary.write"
+  ],
+  "opensWith": ["novel"]
+}

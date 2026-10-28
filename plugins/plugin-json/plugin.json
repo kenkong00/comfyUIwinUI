@@ -1,0 +1,20 @@
+{
+  "id": "json",
+  "name": "工作流查看器",
+  "version": "1.0.0",
+  "author": "core",
+  "description": "JSON 树形查看器：只读浏览 ComfyUI 工作流 / 任意 JSON 数据。",
+  "icon": "layer",
+  "coreVersion": ">=1.0.0",
+  "desktop": false,
+  "app": {
+    "multi": true,
+    "pin": 0,
+    "w": 820,
+    "h": 640,
+    "entry": "ui/index.js",
+    "export": "default"
+  },
+  "permissions": [],
+  "opensWith": ["json"]
+}

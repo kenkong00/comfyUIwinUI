@@ -1,0 +1,21 @@
+{
+  "id": "membership",
+  "name": "会员中心",
+  "version": "1.0.0",
+  "author": "core",
+  "description": "会员套餐展示与配额概览（当前版本配额已取消，均显示为无限）。",
+  "icon": "star",
+  "coreVersion": ">=1.0.0",
+  "desktop": false,
+  "app": {
+    "multi": false,
+    "pin": 1,
+    "w": 920,
+    "h": 660,
+    "entry": "ui/index.js",
+    "export": "default"
+  },
+  "permissions": [
+    "account.read"
+  ]
+}

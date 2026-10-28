@@ -1,0 +1,23 @@
+{
+  "id": "example",
+  "name": "示例插件",
+  "version": "1.0.0",
+  "author": "core",
+  "description": "插件开发模板：同时演示「前端 UI 注册成应用」+「后端注册自己的 API 路由 + 建自己的表」。照抄这个目录就能写新插件。",
+  "icon": "layer",
+  "coreVersion": ">=1.0.0",
+  "desktop": false,
+  "app": {
+    "multi": false,
+    "pin": 0,
+    "w": 720,
+    "h": 520,
+    "entry": "ui/index.js",
+    "export": "default"
+  },
+  "server": {
+    "entry": "index.server.js",
+    "route": "/api/p/example"
+  },
+  "permissions": ["db", "http"]
+}

@@ -1,0 +1,23 @@
+{
+  "id": "notepad",
+  "name": "文本文档",
+  "version": "1.0.0",
+  "author": "core",
+  "description": "纯文本编辑器：提示词 / 规则 / 小说正文。支持打开已有文档回写，或另存到文件库任意盘符目录。",
+  "icon": "notepad",
+  "coreVersion": ">=1.0.0",
+  "desktop": true,
+  "app": {
+    "multi": true,
+    "pin": 0,
+    "w": 820,
+    "h": 620,
+    "entry": "ui/index.js",
+    "export": "default"
+  },
+  "permissions": [
+    "fileLibrary.read",
+    "fileLibrary.write"
+  ],
+  "opensWith": ["text", "prompt", "rule"]
+}

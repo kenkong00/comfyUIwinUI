@@ -1,0 +1,211 @@
+{
+  "2": {
+    "inputs": {
+      "unet_name": "krea2_turbo_fp8.safetensors",
+      "weight_dtype": "default"
+    },
+    "class_type": "UNETLoader",
+    "_meta": {
+      "title": "UNet加载器"
+    }
+  },
+  "3": {
+    "inputs": {
+      "samples": [
+        "32",
+        0
+      ],
+      "vae": [
+        "5",
+        0
+      ]
+    },
+    "class_type": "VAEDecode",
+    "_meta": {
+      "title": "VAE解码"
+    }
+  },
+  "5": {
+    "inputs": {
+      "vae_name": "qwen_image_vae.safetensors"
+    },
+    "class_type": "VAELoader",
+    "_meta": {
+      "title": "加载VAE"
+    }
+  },
+  "7": {
+    "inputs": {
+      "clip_name": "qwen3vl_4b_fp8_scaled.safetensors",
+      "type": "krea2",
+      "device": "default"
+    },
+    "class_type": "CLIPLoader",
+    "_meta": {
+      "title": "加载CLIP"
+    }
+  },
+  "8": {
+    "inputs": {
+      "width": 1600,
+      "height": 904,
+      "batch_size": 1
+    },
+    "class_type": "EmptyLatentImage",
+    "_meta": {
+      "title": "空Latent图像"
+    }
+  },
+  "9": {
+    "inputs": {
+      "conditioning": [
+        "11",
+        0
+      ]
+    },
+    "class_type": "ConditioningZeroOut",
+    "_meta": {
+      "title": "条件零化"
+    }
+  },
+  "11": {
+    "inputs": {
+      "text": [
+        "61",
+        0
+      ],
+      "clip": [
+        "7",
+        0
+      ]
+    },
+    "class_type": "CLIPTextEncode",
+    "_meta": {
+      "title": "CLIP文本编码"
+    }
+  },
+  "32": {
+    "inputs": {
+      "seed": 451177151676932,
+      "steps": 8,
+      "cfg": 1,
+      "sampler_name": "euler",
+      "scheduler": "beta",
+      "denoise": 1,
+      "model": [
+        "63",
+        0
+      ],
+      "positive": [
+        "11",
+        0
+      ],
+      "negative": [
+        "9",
+        0
+      ],
+      "latent_image": [
+        "8",
+        0
+      ]
+    },
+    "class_type": "KSampler",
+    "_meta": {
+      "title": "K采样器"
+    }
+  },
+  "58": {
+    "inputs": {
+      "filename_prefix": "ComfyUI",
+      "images": [
+        "3",
+        0
+      ]
+    },
+    "class_type": "SaveImage",
+    "_meta": {
+      "title": "保存图像"
+    }
+  },
+  "61": {
+    "inputs": {
+      "inputcount": 2,
+      "delimiter": " ",
+      "return_list": false,
+      "Update inputs": null,
+      "string_1": [
+        "81",
+        0
+      ],
+      "string_2": [
+        "82",
+        0
+      ]
+    },
+    "class_type": "JoinStringMulti",
+    "_meta": {
+      "title": "Join String Multi"
+    }
+  },
+  "63": {
+    "inputs": {
+      "PowerLoraLoaderHeaderWidget": {
+        "type": "PowerLoraLoaderHeaderWidget"
+      },
+      "lora_1": {
+        "on": true,
+        "lora": "krea2/nsfw/realism_engine_krea2_v2.safetensors",
+        "strength": 1
+      },
+      "lora_2": {
+        "on": false,
+        "lora": "krea2/控制/age_krea2_loraholic.safetensors",
+        "strength": -0.5
+      },
+      "lora_3": {
+        "on": false,
+        "lora": "krea2/控制/real_3d_krea2_loraholic.safetensors",
+        "strength": 1.5
+      },
+      "lora_4": {
+        "on": false,
+        "lora": "krea2/控制/breast_size_krea2_loraholic.safetensors",
+        "strength": 3
+      },
+      "lora_5": {
+        "on": false,
+        "lora": "krea2/控制/monolid_krea2_loraholic.safetensors",
+        "strength": -1.5
+      },
+      "➕ Add Lora": "",
+      "model": [
+        "2",
+        0
+      ]
+    },
+    "class_type": "Power Lora Loader (rgthree)",
+    "_meta": {
+      "title": "Power Lora Loader (rgthree)"
+    }
+  },
+  "81": {
+    "inputs": {
+      "string": "这是一张35毫米胶片拍摄的真人版剧照，采用深邃的新黑色电影阴影、浓重的模拟胶片颗粒、逼真的皮肤毛孔、真实的织物纹理以及黑暗、写实的电影美学进行拍摄。",
+      "strip_newlines": true
+    },
+    "class_type": "StringConstantMultiline",
+    "_meta": {
+      "title": "可以写入风格提示词"
+    }
+  },
+  "82": {
+    "inputs": {
+      "string": "  女子A人设：国籍：天界，姓名：蛇皇。岁数：未知，容颜绝美。性别：女。外貌：乌黑如瀑的长发，清冷的面容。身形：身材高挑纤细。穿着：被汗水浸湿的银色丝质长袍。男子B人设：国籍：鬼界，姓名：幽冥。岁数：未知，外表枯瘦衰老。性别：男。外貌：枯瘦嶙峋，面容布满深邃的皱纹，皮肤青灰，双眼狭长，瞳孔泛着幽冷的光芒。身形：身材矮小，骨骼突出，瘦骨嶙峋。穿着：破烂不堪的黑色长袍。视角：中景，动态广角，高平视角。角色位置关系：画面左侧是蛇皇蛇皇被巨汉（煞奎）禁锢的身影，她的右臂伸向画面右侧的左鬼（幽冥）。左鬼在画面右侧中景，枯瘦的身躯微侧，数条闪烁着青芒的灵蛇之锁自画面左侧向他激射而来。动作：蛇皇蛇皇在巨汉的禁锢下，娇躯微侧，右臂向前伸展，指尖释放的磅礴灵力化作数条比之前更凝实、速度更快、气息更阴冷的灵蛇之锁，自她指尖如毒蛇吐信般激射而出，破空之声尖锐刺耳，这些灵蛇带着森寒的劲风，蜿蜒而上，直扑左鬼的脖颈。左鬼枯瘦的身躯在灵蛇袭来之际，双眼狭长，瞳孔中闪烁着一丝惊愕与不屑，破烂不堪的黑色长袍衣摆因风压而微微飘动。灯光气氛：青色的灵蛇之锁在昏暗的背景中发出耀眼的光芒，形成强烈的引导线，将观众的目光引向左鬼，整体光线冷峻，营造出紧张的对峙气氛。场景环境：一片残破的地面，散落着碎石和模糊的血迹，背景是远处被迷雾笼罩的废墟。画面下方小号白色字幕：‘数条比之前更凝实、速度更快的灵蛇之锁，自蛇皇指尖激射而出，直扑左鬼。’",
+      "strip_newlines": true
+    },
+    "class_type": "StringConstantMultiline",
+    "_meta": {
+      "title": "生图提示词"
+    }
+  }
+}
